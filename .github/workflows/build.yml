@@ -1,0 +1,31 @@
+name: Build APK
+
+on:
+  workflow_dispatch:   # ← можно запускать вручную
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-Android-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-
+
+      - name: Build APK
+        uses: game-ci/unity-builder@v4
+        with:
+          targetPlatform: Android
+          androidAppBundle: false
+          unityVersion: 2021.3.27f1   # ← работает без лицензии!
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: MobileShooter3D.apk
+          path: build/Android/*.apk
