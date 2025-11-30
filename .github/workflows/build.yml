@@ -1,27 +1,30 @@
-name: Build APK
+name: Build Android APK
 
 on:
   workflow_dispatch:
-  
-    branches: [ main 
+  push:
+    branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Build APK (без лицензии и keystore)
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build project for Android
         uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: Android
-          androidAppBundle: false
           unityVersion: 2021.3.27f1
-          buildMethod: UnityBuilderAction.BuildScript.PerformAndroidBuild
-          androidKeystorePass: none
-          androidKeyaliasPass: none
+          buildName: MobileShooter3D
+          buildsPath: build
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: MobileShooter3D.apk
-          path: build/Android/*.apk
+          name: MobileShooter3D-APK
+          path: build/**/*.apk
