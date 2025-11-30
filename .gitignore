@@ -1,0 +1,100 @@
+# ===================================
+# Unity Generated Files
+# ===================================
+
+# Папка Library - Unity создаёт автоматически
+[Ll]ibrary/
+
+# Временные файлы
+[Tt]emp/
+[Oo]bj/
+
+# Папки сборки
+[Bb]uild/
+[Bb]uilds/
+
+# Логи
+[Ll]ogs/
+
+# Пользовательские настройки (у каждого свои)
+[Uu]ser[Ss]ettings/
+
+# Memory Captures
+[Mm]emoryCaptures/
+
+# Asset Store tools
+[Aa]sset[Ss]tore[Tt]ools/
+
+# ===================================
+# Visual Studio / IDE
+# ===================================
+
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ===================================
+# Mac OS
+# ===================================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ===================================
+# Windows
+# ===================================
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# ===================================
+# Unity3D Generated Meta Files
+# ===================================
+
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# ===================================
+# Builds - APK, iOS и т.д.
+# ===================================
+
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# ===================================
+# Crashlytics
+# ===================================
+
+crashlytics-build.properties
+sysinfo.txt
+
+# ===================================
+# Записи плагинов
+# ===================================
+
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
