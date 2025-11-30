@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build APK
-        uses: game-ci/unity-builder@master
+      - name: Build Android APK
+        uses: game-ci/unity-builder@v5.0.0   # ← ЭТО РАБОТАЕТ!
         with:
           targetPlatform: Android
           unityVersion: 2021.3.27f1
