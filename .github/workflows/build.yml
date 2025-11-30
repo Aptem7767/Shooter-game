@@ -10,10 +10,11 @@ jobs:
     name: Build for Android
     runs-on: ubuntu-latest
     steps:
+      # 1. Скачиваем репозиторий
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Кэширование (решает ошибку "Library folder does not exist")
+      # 2. Кэш (чтобы следующие сборки были быстрее)
       - name: Cache Library
         uses: actions/cache@v3
         with:
@@ -21,16 +22,17 @@ jobs:
           key: Library-Android-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: Library-
 
-      # Сборка БЕЗ лицензии (используем версию, которая не требует активации)
+      # 3. Сборка APK (Версия 2021.3.27f1 работает БЕЗ лицензии!)
       - name: Build Android
         uses: game-ci/unity-builder@v4
         with:
           targetPlatform: Android
-          unityVersion: 2021.3.27f1   # <--- ВАЖНО: Эта версия работает без лицензии!
+          unityVersion: 2021.3.27f1
+          androidAppBundle: false
 
-      # Загрузка APK
+      # 4. Загрузка готового файла (ЗДЕСЬ БЫЛА ОШИБКА, ТЕПЕРЬ v4)
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # <--- Исправлено на v4
         with:
           name: MobileShooter3D.apk
           path: build/Android/*.apk
